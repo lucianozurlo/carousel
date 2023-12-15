@@ -27,13 +27,13 @@
     <div id="carouselExample" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="img1.jpg" class="d-block w-100" alt="Primera imagen">
+                <img src="imga1.jpg?cache=" class="d-block w-100" alt="Primera imagen">
             </div>
             <div class="carousel-item">
-                <img src="img2.jpg" class="d-block w-100" alt="Segunda imagen">
+                <img src="imga2.jpg?cache=" class="d-block w-100" alt="Segunda imagen">
             </div>
             <div class="carousel-item">
-                <img src="img3.jpg" class="d-block w-100" alt="Tercera imagen">
+                <img src="imga3.jpg?cache=" class="d-block w-100" alt="Tercera imagen">
             </div>
         </div>
     </div>
@@ -58,6 +58,12 @@
                 if (currentIndex === itemsLength - 1) {
                     $('.carousel-item').first().appendTo($carousel.find('.carousel-inner'));
                 }
+            });
+
+            // Agrega un timestamp único a las URL de las imágenes
+            $('img').each(function () {
+                var originalSrc = $(this).attr('src');
+                $(this).attr('src', originalSrc + new Date().getTime());
             });
         });
     </script>
